@@ -1,0 +1,43 @@
+
+HIGH
+{
+
+    trees need to look good chopped - change textures
+
+    character model - universal lpc spritesheet
+
+
+    time doesnt work
+	DNC
+    {
+        (game hours = ghr)
+        24ghr = 48min
+        1ghr = 2min
+        1gmin = 2s
+
+        insentives to play at night
+
+        minimal punishment for skipping night - your hunger and stuff would decrease as if playing normally - or more..?
+
+        MAYBE(if you havent slept for a bit, you mildly hallucinate, just to fuck with you.)
+    }
+}
+
+LOW
+{
+	player stats - health, sprinting too
+    {
+        to have hunger, day night cycle (DNC) is needed to keep a track of stats
+
+        hunger -> food  -> animals -> large[deer, ..]
+                        `\         `-> small[rabbit, squirrel], aquatic[fish]
+                          \ 
+                           `-> plants -> wild[berries]
+                                      `-> farmed[fruit, vegetables]
+
+        thirst -> water sources -> purification (ideally salt and freshwater but diffictult with current world get so all water is 'dirty')
+    }
+	crafting
+
+	building
+}

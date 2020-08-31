@@ -1,0 +1,956 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"stopped",
+				"stoppedY"
+			],
+			[
+				"canv",
+				"love.graphics.newCanvas"
+			],
+			[
+				"colour",
+				"colourScale"
+			],
+			[
+				"pritn",
+				"print\t(...)"
+			],
+			[
+				"update",
+				"updateWorld"
+			],
+			[
+				"rect",
+				"love.graphics.rectangle"
+			],
+			[
+				"line",
+				"love.graphics.line"
+			],
+			[
+				"rec",
+				"love.graphics.rectangle"
+			],
+			[
+				"color",
+				"love.graphics.setColor"
+			],
+			[
+				"dmG",
+				"dmgAlert\tabc"
+			],
+			[
+				"print",
+				"love.graphics.print"
+			],
+			[
+				"tiledi",
+				"tileDisplayH\tabc"
+			],
+			[
+				"tiledis",
+				"tileDisplayW\tabc"
+			],
+			[
+				"tiled",
+				"tileDisplayH\t(world.lua)"
+			],
+			[
+				"vh",
+				"vehicle\tabc"
+			],
+			[
+				"v",
+				"vehicles\tabc"
+			],
+			[
+				"p",
+				"physics\t(main.lua)"
+			],
+			[
+				"ve",
+				"vehicle\tabc"
+			],
+			[
+				"w",
+				"wheelAngle\tabc"
+			],
+			[
+				"top",
+				"topReverseSpeed\tabc"
+			],
+			[
+				"ob",
+				"objects.car.body\tabc"
+			],
+			[
+				"g",
+				"graphics\tabc"
+			],
+			[
+				"gr",
+				"grass"
+			],
+			[
+				"get",
+				"getWorldPoints"
+			],
+			[
+				"obje",
+				"objects\tabc"
+			],
+			[
+				"se",
+				"setColor\tabc"
+			],
+			[
+				"o",
+				"objects.grass.fixture\tabc"
+			],
+			[
+				"new",
+				"newRectangleShape\tabc"
+			],
+			[
+				"set",
+				"setFriction"
+			],
+			[
+				"els",
+				"elseif\tabc"
+			],
+			[
+				"key",
+				"keyboard\tabc"
+			],
+			[
+				"r",
+				"r"
+			],
+			[
+				"box",
+				"boxH\tabc"
+			],
+			[
+				"Rbox",
+				"Rboxes\tabc"
+			],
+			[
+				"load",
+				"loadModel\tabc"
+			],
+			[
+				"pand",
+				"pandaPace\tabc"
+			],
+			[
+				"pan",
+				"pandaPace\tabc"
+			],
+			[
+				"pos",
+				"posInter2\tabc"
+			],
+			[
+				"hpr",
+				"hprInter2\tabc"
+			],
+			[
+				"posIn",
+				"posInter1\tabc"
+			],
+			[
+				"Pand",
+				"pandaActor"
+			],
+			[
+				"ang",
+				"angleR\tabc"
+			],
+			[
+				"angle",
+				"angleD\tabc"
+			],
+			[
+				"n",
+				"nvidia_waveglow\tabc"
+			],
+			[
+				"F",
+				"Fruit.APPLE\tabc"
+			],
+			[
+				"sort",
+				"sortedTeams\tabc"
+			],
+			[
+				"spor",
+				"sportTeams\tabc"
+			],
+			[
+				"fruit",
+				"fruitCounter\tabc"
+			],
+			[
+				"default",
+				"defaultdict\tabc"
+			],
+			[
+				"fr",
+				"fruitCounter\tabc"
+			],
+			[
+				"phoneme",
+				"phonemes\tabc"
+			],
+			[
+				"Audi",
+				"AudioSegment\tabc"
+			],
+			[
+				"ph",
+				"phonemes\tabc"
+			],
+			[
+				"vowel",
+				"vowels\tabc"
+			],
+			[
+				"pho",
+				"phonemes\tabc"
+			],
+			[
+				"sound",
+				"soundName\tabc"
+			],
+			[
+				"phon",
+				"phonemes\tabc"
+			],
+			[
+				"phone",
+				"phonemes\tabc"
+			],
+			[
+				"c",
+				"consonants\tabc"
+			],
+			[
+				"name",
+				"nameCount\tabc"
+			],
+			[
+				"in",
+				"input\t(fileNaming.py)"
+			],
+			[
+				"from",
+				"from_wav\t(audioSplit.py)"
+			],
+			[
+				"ch",
+				"chunks\tabc"
+			],
+			[
+				"Aud",
+				"AudioSegment\tabc"
+			],
+			[
+				"spl",
+				"split_on_silence\tabc"
+			],
+			[
+				"Au",
+				"AudioSegment\tabc"
+			],
+			[
+				"chun",
+				"chunkName\tabc"
+			],
+			[
+				"sile",
+				"silence_thresh\tabc"
+			],
+			[
+				"margin",
+				"margin-bottom\tproperty"
+			],
+			[
+				"marg",
+				"margin-top\tproperty"
+			],
+			[
+				"bord",
+				"border-width\tproperty"
+			],
+			[
+				"mar",
+				"margin\tabc"
+			],
+			[
+				"min-",
+				"min-height\tproperty"
+			],
+			[
+				"text",
+				"text-decoration\tproperty"
+			],
+			[
+				"dro",
+				"dropdownOn\tabc"
+			],
+			[
+				"min",
+				"min-device-width\tabc"
+			],
+			[
+				"tra",
+				"translateX()\ttransform"
+			],
+			[
+				"fil",
+				"filter\tproperty"
+			],
+			[
+				"outl",
+				"outline-offset\tproperty"
+			],
+			[
+				"trans",
+				"transition\tproperty"
+			],
+			[
+				"inlin",
+				"inline-block\tdisplay"
+			],
+			[
+				"rel",
+				"relative\tposition"
+			],
+			[
+				"font-",
+				"font-size\tproperty"
+			],
+			[
+				"resi",
+				"resize\t Style CSS"
+			],
+			[
+				"spri",
+				"sprite1\tabc"
+			],
+			[
+				"reques",
+				"requestAnimationFrame\t( callback: FrameRequestCallback ): long Window"
+			],
+			[
+				"TH",
+				"THREE\tabc"
+			],
+			[
+				"bck",
+				"background-color\tproperty"
+			],
+			[
+				"global",
+				"globalPoints\t(bj.css)"
+			],
+			[
+				"respo",
+				"responseType\t XMLHttpRequest"
+			],
+			[
+				"tras",
+				"transform\tproperty"
+			],
+			[
+				"backg",
+				"background-color\tproperty"
+			],
+			[
+				"bakc",
+				"background-color\tproperty"
+			],
+			[
+				"pro",
+				"projects\tabc"
+			],
+			[
+				"abou",
+				"aboutDefault\tabc"
+			],
+			[
+				"zI",
+				"zIndex\t = '' Style CSS"
+			],
+			[
+				"gete",
+				"getElementById\tabc"
+			],
+			[
+				"lin",
+				"lineHeight\t = 'initial' Style CSS"
+			],
+			[
+				"b",
+				"buttons\tabc"
+			],
+			[
+				"back",
+				"background-color\tproperty"
+			],
+			[
+				"trasn",
+				"translateY()\ttransform"
+			],
+			[
+				"signInOu",
+				"signInOut\tabc"
+			],
+			[
+				"loca",
+				"location\t: Location Window"
+			],
+			[
+				"uplao",
+				"uploading\tabc"
+			],
+			[
+				"siz",
+				"size\tproperty"
+			],
+			[
+				"d",
+				"dotted\tborder"
+			],
+			[
+				"ba",
+				"background-image\tproperty"
+			],
+			[
+				"co",
+				"cover\tobject-fit"
+			],
+			[
+				"obj",
+				"object-fit\tproperty"
+			],
+			[
+				"no",
+				"no-repeat\tbackground-repeat"
+			],
+			[
+				"upl",
+				"uploader\tabc"
+			],
+			[
+				"crea",
+				"createElement\t( localName: DOMString ): Element Document"
+			],
+			[
+				"upload",
+				"uploadTask\tabc"
+			],
+			[
+				"storage",
+				"storageRef\tabc"
+			],
+			[
+				"getele",
+				"getElementById\t( elementId: DOMString ): Element Document"
+			],
+			[
+				"hit",
+				"hitStand\tabc"
+			],
+			[
+				"check",
+				"checkPoints\tabc"
+			],
+			[
+				"getElement",
+				"getElementsByName\t(old.js)"
+			],
+			[
+				"doc",
+				"document\tabc"
+			],
+			[
+				"ovwr",
+				"overflow\tproperty"
+			],
+			[
+				"create",
+				"createElement"
+			],
+			[
+				"createplayer",
+				"createPlayerUI\tabc"
+			],
+			[
+				"sty",
+				"style\t Style CSS"
+			],
+			[
+				"button",
+				"buttonCount\tabc"
+			],
+			[
+				"word",
+				"word-wrap\tproperty"
+			],
+			[
+				"signIn",
+				"signInTxt\tabc"
+			],
+			[
+				"firebas",
+				"firebaseLogin\tabc"
+			],
+			[
+				"fire",
+				"firebaseLogin\tabc"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "TODO.txt",
+			"settings":
+			{
+				"buffer_size": 1082,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "player.lua",
+			"settings":
+			{
+				"buffer_size": 5603,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "char.lua",
+			"settings":
+			{
+				"buffer_size": 400,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 150.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/james/git-repos/loveDev/OWE3"
+	],
+	"file_history":
+	[
+		"/home/james/git-repos/loveDev/OWE3/world.lua",
+		"/home/james/git-repos/loveDev/OWE3/entities.lua",
+		"/home/james/git-repos/loveDev/OWE3/saveload.lua",
+		"/home/james/git-repos/loveDev/OWE3/player.lua",
+		"/home/james/git-repos/loveDev/OWE3/items.lua",
+		"/home/james/git-repos/loveDev/OWE3/textures.lua",
+		"/home/james/git-repos/loveDev/OWE3/ui.lua",
+		"/home/james/git-repos/loveDev/OWE3/main.lua",
+		"/home/james/git-repos/loveDev/OWE3/tree.lua",
+		"/home/james/git-repos/loveDev/OWE3/menu.lua",
+		"/home/james/git-repos/loveDev/OWE3/save/save.txt",
+		"/home/james/git-repos/loveDev/survival/main.lua",
+		"/home/james/git-repos/loveDev/physicsTest/main.lua",
+		"/home/james/git-repos/loveDev/OWE3/conf.lua",
+		"/home/james/git-repos/loveDev/OWE(2.5)/world.lua",
+		"/home/james/git-repos/loveDev/OWE(2.5)/main.lua",
+		"/home/james/git-repos/loveDev/blackjack/blackjack.lua",
+		"/home/james/git-repos/loveDev/OWE(2.5)/textures.lua",
+		"/home/james/git-repos/loveDev/OWE(2.5)/player.lua",
+		"/home/james/git-repos/loveDev/OWE(2.5)/entities.lua",
+		"/home/james/git-repos/loveDev/survival/requires.lua",
+		"/home/james/git-repos/loveDev/survival/world.lua",
+		"/home/james/Desktop/loveDev/physicsTest/main.lua",
+		"/home/james/Desktop/loveDev/farming/requires.lua",
+		"/home/james/Desktop/loveDev/farming/vehicles.lua",
+		"/home/james/Desktop/loveDev/driving/main.lua",
+		"/home/james/Desktop/loveDev/farming/main.lua",
+		"/home/james/Desktop/loveDev/farming/vehicle.lua",
+		"/home/james/Desktop/loveDev/helloWorld/main.lua",
+		"/home/james/Desktop/Dropbox/Gamedev/current/OWE/Post/main.lua",
+		"/home/james/Desktop/loveDev/helloWorld.lua",
+		"/home/james/Desktop/panda3dtest/helloworld.py",
+		"/home/james/Desktop/panda3dtest/main.py",
+		"/home/james/Desktop/tacotron/tts.py",
+		"/home/james/git-repos/craigSource/speech/speak.py",
+		"/home/james/git-repos/craigSource/main.py",
+		"/home/james/Desktop/linkedIn Learning/AdvancedPython/objectOperations.py",
+		"/home/james/Desktop/linkedIn Learning/AdvancedPython/computedAttributes.py",
+		"/home/james/Desktop/linkedIn Learning/AdvancedPython/classStrings.py",
+		"/home/james/Desktop/linkedIn Learning/AdvancedPython/enumerations.py",
+		"/home/james/Desktop/linkedIn Learning/AdvancedPython/advancedClasses.py",
+		"/home/james/Desktop/linkedIn Learning/AdvancedPython/deque.py",
+		"/home/james/Desktop/linkedIn Learning/AdvancedPython/orderedDict.py",
+		"/home/james/Desktop/linkedIn Learning/AdvancedPython/defaultDict.py",
+		"/home/james/Desktop/linkedIn Learning/AdvancedPython/counters.py",
+		"/home/james/Desktop/linkedIn Learning/AdvancedPython/namedTuple.py",
+		"/home/james/Desktop/linkedIn Learning/AdvancedPython/advancedCollections.py",
+		"/home/james/Desktop/linkedIn Learning/AdvancedPython/TEMPLATE.PY",
+		"/home/james/Desktop/cg/speech/phons to update",
+		"/home/james/Desktop/cg/speech/phonTest.py",
+		"/home/james/Desktop/cg/speech/speak.py",
+		"/home/james/Desktop/cg/recognition/speech/sr.py",
+		"/home/james/Desktop/cg/main.py",
+		"/run/user/1000/gvfs/smb-share:server=raspberrypi.local,share=craig/move/dance.py",
+		"/home/james/Desktop/craig_recognition/speech/sr.py",
+		"/home/james/Desktop/protectronVoice_linux/tmp/fileNaming.py",
+		"/home/james/Desktop/protectronVoice_linux/tmp/speak.py",
+		"/home/james/Desktop/protectronVoice_linux/tmp/audiosplit.py",
+		"/home/james/Desktop/protectronVoice_linux/consonants.txt",
+		"/home/james/Desktop/protectronVoice_linux/vowels.txt",
+		"/etc/samba/smb.conf",
+		"/home/james/Desktop/protectronVoice_linux/speak.py",
+		"/home/james/Desktop/protectronVoice_linux/sorting.py",
+		"/home/james/Desktop/protectronVoice_linux/chunkName.py",
+		"/home/james/Desktop/protectronVoice_linux/audioSplit.py",
+		"/home/james/Desktop/protectronVoice_linux/phonemes.txt",
+		"/home/james/git-repos/waggett/webFiles/public/index.js",
+		"/home/james/git-repos/waggett/webFiles/public/oldstyle.css",
+		"/home/james/git-repos/waggett/webFiles/public/styleTablet.css",
+		"/home/james/git-repos/waggett/webFiles/public/styleMobile.css",
+		"/home/james/git-repos/waggett/webFiles/public/styleDesktop.css",
+		"/home/james/Desktop/main.py",
+		"/home/james/git-repos/waggett/webFiles/public/blog/blog.html",
+		"/home/james/git-repos/waggett/webFiles/public/index.html",
+		"/home/james/git-repos/waggett/webFiles/public/blog/categories.html",
+		"/home/james/git-repos/waggett/webFiles/public/blog/blog.js",
+		"/home/james/git-repos/waggett/webFiles/public/index.css",
+		"/home/james/git-repos/waggett/webFiles/firebase.json",
+		"/home/james/git-repos/waggett/webFiles/public/old.js",
+		"/home/james/git-repos/waggett/webFiles/public/old.css",
+		"/home/james/git-repos/waggett/webFiles/public/shopGame/shopGame.js",
+		"/home/james/git-repos/waggett/webFiles/public/shopGame/shopGame.html",
+		"/home/james/git-repos/waggett/webFiles/public/sim/sim.html",
+		"/home/james/git-repos/waggett/webFiles/public/sim/sim.js",
+		"/home/james/git-repos/waggett/webFiles/public/NOTES",
+		"/home/james/git-repos/waggett/webFiles/public/shopGame/pixi.js",
+		"/home/james/git-repos/waggett/webFiles/public/webgl/webgl.js",
+		"/home/james/git-repos/waggett/webFiles/public/webgl/webgl.html",
+		"/home/james/git-repos/waggett/webFiles/public/webgl/three.js",
+		"/home/james/git-repos/waggett/webFiles/public/blackjack/bj.css",
+		"/home/james/git-repos/waggett/webFiles/public/blackjack/bj.html",
+		"/home/james/git-repos/waggett/webFiles/public/blackjack/bj.js",
+		"/home/james/.config/sublime-merge/Packages/User/Preferences.sublime-settings",
+		"/home/james/Downloads/LOOT-RPG-v1.0-master/index.html",
+		"/home/james/Downloads/LOOT-RPG-v1.0-master/css/style.css",
+		"/home/james/git-repos/waggett/webFiles/public/wedding/photos.js",
+		"/home/james/git-repos/waggett/webFiles/cors.json",
+		"/home/james/git-repos/waggett/webFiles/public/blackjackJS/bj.css",
+		"/home/james/git-repos/waggett/webFiles/public/blackjackJS/bj.html",
+		"/home/james/git-repos/waggett/webFiles/public/blackjackJS/bj.js",
+		"/home/james/git-repos/waggett/webFiles/public/blackjackJS/index.html",
+		"/home/james/git-repos/waggett/webFiles/public/blackjackJS/index.js",
+		"/home/james/git-repos/waggett/webFiles/public/blackjackJS/index.css",
+		"/home/james/git-repos/waggett/webFiles/public/auth.js",
+		"/home/james/git-repos/waggett/webFiles/public/auth.html",
+		"/home/james/git-repos/waggett/webFiles/storage.rules",
+		"/home/james/git-repos/waggett/webFiles/public/login.html",
+		"/home/james/git-repos/waggett/webFiles/public/firebaseSDK.js",
+		"/home/james/git-repos/waggett/webFiles/public/wedding/photos.css",
+		"/home/james/git-repos/waggett/webFiles/public/wedding/photosM.css",
+		"/home/james/git-repos/waggett/webFiles/public/wedding/photos.html",
+		"/home/james/git-repos/waggett/webFiles/public/src/jw.js",
+		"/home/james/git-repos/waggett/webFiles/public/src/firebaseTools.js",
+		"/home/james/git-repos/blueThumbStudy/index.html",
+		"/home/james/git-repos/blueThumbStudy/index.js",
+		"/home/james/Desktop/blackjackJS/old.js",
+		"/home/james/Desktop/blackjackJS/old.html",
+		"/home/james/Desktop/blackjackJS/index.css",
+		"/home/james/Desktop/blackjackJS/index.js",
+		"/home/james/Desktop/blackjackJS/index.html",
+		"/home/james/Desktop/blackjack/index.js",
+		"/home/james/Desktop/blackjack/index.html",
+		"/home/james/git-repos/waggett/webComponentTesting/buttons/index.html",
+		"/home/james/git-repos/waggett/webComponentTesting/buttons/index.js",
+		"/home/james/git-repos/waggett/webComponentTesting/dynamicList/index.html",
+		"/home/james/git-repos/waggett/webComponentTesting/dynamicList/src/bt-buttons-app/bt-buttons-app.js",
+		"/home/james/git-repos/waggett/webComponentTesting/dynamicList/index.js",
+		"/home/james/git-repos/blueThumbStudy/src/firebaseTools.js"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"self.time.",
+			"sand",
+			"1",
+			"love.graphics.setColor(World:timeColour())\n\t\t-- love.graphics.rectangle('fill', 0, 0, sw, sh)\n\t\t-- love.graphics.setColor(1,1,1,1)",
+			"time",
+			"Entities:getPlayer()",
+			"x"
+		],
+		"highlight": true,
+		"in_selection": true,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "TODO.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1082,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								191,
+								191
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "player.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5603,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5253,
+								5253
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua Love/LuaLove.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3216.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "char.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 400,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								327,
+								327
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua Love/LuaLove.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 110.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/SublimeLove/Love.sublime-build",
+	"project": "owe3.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 160.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
