@@ -1,12 +1,6 @@
 
 HIGH
 {
-
-    trees need to look good chopped - change textures
-
-    character model - universal lpc spritesheet
-
-
     time doesnt work
 	DNC
     {

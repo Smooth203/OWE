@@ -1,9 +1,9 @@
 local texture = {
 	name = 'tree',
-	x = 6,
+	x = 3,
 	y = 30,
 	w = 3,
-	h = 1
+	h = 2
 }
 
 getUnsaveables = function(t, name)
@@ -24,9 +24,9 @@ getUnsaveables = function(t, name)
 
 			if t.dmgAlert.timer > 0 then
 				love.graphics.setColor(0,0,0,1)
-				love.graphics.rectangle('fill', (0.5*World:get('tileSize'))+math.floor(World:get('x')+(t.x*World:get('tileSize'))), (1*World:get('tileSize'))+math.floor(World:get('y')+(t.y*World:get('tileSize'))), (2*World:get('tileSize')), 10)
+				love.graphics.rectangle('fill', (0.5*World:get('tileSize'))+math.floor(World:get('x')+(t.x*World:get('tileSize'))), (2*World:get('tileSize'))+math.floor(World:get('y')+(t.y*World:get('tileSize'))), (2*World:get('tileSize')), 10)
 				love.graphics.setColor(1,0,0,1)
-				love.graphics.rectangle('fill', (0.5*World:get('tileSize'))+math.floor(World:get('x')+(t.x*World:get('tileSize'))), (1*World:get('tileSize'))+math.floor(World:get('y')+(t.y*World:get('tileSize'))), (2*World:get('tileSize'))*(t.health/t.maxHealth), 10)
+				love.graphics.rectangle('fill', (0.5*World:get('tileSize'))+math.floor(World:get('x')+(t.x*World:get('tileSize'))), (2*World:get('tileSize'))+math.floor(World:get('y')+(t.y*World:get('tileSize'))), (2*World:get('tileSize'))*(t.health/t.maxHealth), 10)
 				love.graphics.setColor(1,1,1,1)
 			end
 		end
@@ -79,7 +79,7 @@ getUnsaveables = function(t, name)
 		end
 	elseif name == 'top' then
 
-		t.quad = love.graphics.newQuad(6*World:get('tileSize'), 27*World:get('tileSize'), 3*World:get('tileSize'), 3*World:get('tileSize'), World:get('tileset'):getWidth(), World:get('tileset'):getHeight())
+		t.quad = love.graphics.newQuad(6*World:get('tileSize'), 27*World:get('tileSize'), 3*World:get('tileSize'), 4*World:get('tileSize'), World:get('tileset'):getWidth(), World:get('tileset'):getHeight())
 
 		function t.draw()
 			love.graphics.draw(World:get('tileset'), t.quad,
@@ -112,11 +112,11 @@ structures['tree'] = function(id,x,y)
 	top.Type = 'structure'
 	top.id = tostring(id) .. "TOP"
 	top.name = 'top'
-	top.quad = love.graphics.newQuad(6*World:get('tileSize'), 27*World:get('tileSize'), 3*World:get('tileSize'), 3*World:get('tileSize'), World:get('tileset'):getWidth(), World:get('tileset'):getHeight())
+	top.quad = love.graphics.newQuad(6*World:get('tileSize'), 27*World:get('tileSize'), 3*World:get('tileSize'), 4*World:get('tileSize'), World:get('tileset'):getWidth(), World:get('tileset'):getHeight())
 	top.x = x
-	top.y = y - 3
+	top.y = y - 2
 	top.w = 3
-	top.h = 2
+	top.h = 4
 	top.worldX = World:get('x') + top.x*World:get('tileSize')
 	top.worldY = World:get('y') + top.y*World:get('tileSize')
 	getUnsaveables(top, 'top')

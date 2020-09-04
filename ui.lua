@@ -1,5 +1,5 @@
 local Items = require 'items'
-local message = {
+message = {
 	active = false,
 	timer = 0,
 	x = 0,
@@ -118,6 +118,8 @@ Ui = {
 		end
 
 		if message.active then
+			love.graphics.setColor(0,0,0,1)
+			love.graphics.rectangle('fill', message.x, message.y, font:getWidth(message.text), font:getHeight(message.text))
 			love.graphics.setColor(1,1,1,1)
 			love.graphics.print(message.text, message.x, message.y)
 		end		
@@ -201,8 +203,10 @@ Ui = {
 							Ui:swapItem(slot, self.equipped)
 							print('Equipped')
 						else
+							Ui:Message('Cannot Equip ' .. slot.item.name, (sw/2)-(font:getWidth('Cannot Equip ' .. slot.item.name)/2), sh/2, 2)
 							print('Not Equippable')
 						end
+						slot.showOptions = false
 					end
 				end
 				--equip
@@ -364,12 +368,10 @@ Ui = {
 	Message = function(self, text, x, y, seconds)
 
 		--reset
-		message = {
-			active = false,
-			timer = 0,
-			x = 0,
-			y = 0
-		}
+		message.active = false
+		message.timer = 0
+		message.x = 0
+		message.y = 0
 
 		--set
 		message.text = text

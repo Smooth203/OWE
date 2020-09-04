@@ -68,6 +68,7 @@ function newItem(item, x, y, Quant)
 			self.collisions = {
 				inRadius = false
 			}
+			self.dropCoolDown = 50
 		end,
 
 		draw = function(self)
@@ -97,21 +98,6 @@ function newItem(item, x, y, Quant)
 					self.x = Entities:getPlayer().x
 					self.y = Entities:getPlayer().y
 				end
-
-				-- if self.x > Entities:getPlayer().x+3 then
-				-- 	self.x = self.x - 5 * dt / math.abs(self.x-Entities:getPlayer().x)*500
-				-- elseif self.x < Entities:getPlayer().x-3 then
-				-- 	self.x = self.x + 5 * dt / math.abs(self.x-Entities:getPlayer().x)*500
-				-- else
-				-- 	self.x = Entities:getPlayer().x
-				-- end
-				-- if self.y > Entities:getPlayer().y+3 then
-				-- 	self.y = self.y - 5 * dt / math.abs(self.y-Entities:getPlayer().y)*500
-				-- elseif self.y < Entities:getPlayer().y-3 then
-				-- 	self.y = self.y + 5 * dt / math.abs(self.y-Entities:getPlayer().y)*500
-				-- else
-				-- 	self.y = Entities:getPlayer().y
-				-- end
 				if self.x == Entities:getPlayer().x and self.y == Entities:getPlayer().y then
 					Ui:addItem(string.lower(self.data.name), 'inv', nil, true, self.quant)
 					self.collect = true
@@ -119,6 +105,7 @@ function newItem(item, x, y, Quant)
 				end
 			else
 				self.x, self.y = math.floor((World:get('x')+(self.tile.x*World:get('tileSize')))), math.floor(World:get('y')+(self.tile.y*World:get('tileSize')))
+				self.dropCoolDown = self.dropCoolDown - 10 * dt
 			end
 		end,
 
@@ -132,6 +119,7 @@ function newItem(item, x, y, Quant)
 			--within pickup radius
 			if col(self.x-World:get('tileSize'),self.y-World:get('tileSize'),3*World:get('tileSize'),3*World:get('tileSize'), with.x,with.y,with.w,with.h) then
 				self.collisions.inRadius = true
+				--self.collect = true
 			else
 				self.collisions.inRadius = false
 			end

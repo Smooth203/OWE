@@ -256,9 +256,9 @@ World = {
 				for y = -1, self.h do
 					pcall(function()
 						local tile = self.world[x+1][y+1]
-						self.map:add(self.quads[tile.texture], x*self.tileSize, y*self.tileSize)
 						World:checkTiles(tile,0.25,0.35,4,5)
 						World:checkTiles(tile,0.35,0.5,5,1)
+						self.map:add(self.quads[tile.texture], x*self.tileSize, y*self.tileSize)
 					end)
 				end
 			end

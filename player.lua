@@ -4,6 +4,8 @@ function player_getUnsaveables(player)
 
 	player.img = love.graphics.newImage(player.imgPath)
 	player.spritesheets = newSpriteSheets('male' ,'light')
+	player.char = newChar('down')
+	player.activeChar = player.char[1]
 	player.canvas = love.graphics.newCanvas(player.w, player.h)
 
 	function player.save(self)

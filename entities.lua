@@ -84,7 +84,7 @@ Entities = {
 
 	keyreleased = function(self, key)
 		for i, e in ipairs(self.entities) do
-			if e.keypressed then
+			if e.keyreleased then
 				e:keyreleased(key)
 			end
 		end
