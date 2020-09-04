@@ -4,6 +4,7 @@ newGame = function()
 	World:new()
 	Entities:new()
 	Ui:new()
+	World:updateWorld()
 end
 
 require('conf')
@@ -104,6 +105,20 @@ function love.keypressed(key)
 		end
 	else
 		Menu:keypressed(key)
+	end
+end
+
+function love.keyreleased(key)
+	if gameState == 'game' then
+		--Ui:keyreleased(key)
+		if not paused then
+			Entities:keyreleased(key)
+			if key == 'f5' then
+				save()
+			end
+		end
+	else
+	--	Menu:keyreleased(key)
 	end
 end
 

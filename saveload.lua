@@ -73,5 +73,6 @@ loadGame = function()
 	rawWorldData = nil
 	rawData = nil
 	
+	World:updateWorld(true)
 	print('LOADED!')
 end

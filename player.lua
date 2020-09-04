@@ -3,6 +3,8 @@ local char = require 'char'
 function player_getUnsaveables(player)
 
 	player.img = love.graphics.newImage(player.imgPath)
+	player.spritesheets = newSpriteSheets('male' ,'light')
+	player.canvas = love.graphics.newCanvas(player.w, player.h)
 
 	function player.save(self)
 		local data = player
@@ -14,10 +16,12 @@ function player_getUnsaveables(player)
 		
 		if col(Ui:get('mouse').x,Ui:get('mouse').y,0,0, player.x-100, player.y-100,200,200) then
 			love.graphics.rectangle('line', (Ui:get('mouse').tile.x*32)+World:get('x'), (Ui:get('mouse').tile.y*32)+World:get('y'), 32, 32)
+			--love.graphics.print(Ui:get('mouse').tile.heightmapValue,(Ui:get('mouse').tile.x*32)+World:get('x'), (Ui:get('mouse').tile.y*32)+World:get('y'))
 		end
 
 		-- love.graphics.print(math.floor((player.x+player.img:getWidth()/2)-World:get('x'))..", "..math.floor((player.y+player.img:getHeight()/2)-World:get('y')), 10, 50)
 		-- love.graphics.print(math.floor(((player.x+player.img:getWidth()/2)-World:get('x'))/World:get('tileSize'))..", "..math.floor(((player.y+player.img:getHeight()/2)-World:get('y'))/World:get('tileSize')), 10, 70)
+
 	end
 
 	function player.update(self, dt)
@@ -37,15 +41,20 @@ function player_getUnsaveables(player)
 		player.camAdjust(dt)
 
 		--char
-		local state = 0
 		if player.state == 'idle' then
+			player.char = newChar('down')
+			player.animState = 1
 		elseif player.state == 'walk' then
-		    ?>
-		    
+			--anim
+		    player.activeChar = player.char[math.floor(player.animState)]
+		    player.animState = player.animState + 1 * player.animSpeed
+		    if player.animState > 8 then
+		    	player.animState = 1
+		    end
 		end
 		love.graphics.setCanvas(player.canvas)
 			love.graphics.clear()
-			love.graphics.draw(player.spritesheets[1], player.char[1], 0, 0)
+			love.graphics.draw(player.spritesheets[1], player.activeChar, 0, 0)
 		love.graphics.setCanvas()
 		--World:getTile(math.floor((player.x-World:get('x'))/World:get('tileSize')), math.floor((player.y-World:get('y'))/World:get('tileSize')))
 	end
@@ -85,6 +94,30 @@ function player_getUnsaveables(player)
 		end
 	end
 
+	function player.keyreleased(self, key)
+		if key == player.control.down then
+			player:checkKey()
+		elseif key == player.control.left then
+			player:checkKey()
+		elseif key == player.control.up then
+			player:checkKey()
+		elseif key == player.control.right then
+			player:checkKey()		    
+		end
+	end
+
+	function player.checkKey(self)
+		if love.keyboard.isDown(player.control.down) then
+			player.char = newChar('down')
+		elseif love.keyboard.isDown(player.control.left) then
+			player.char = newChar('left')
+		elseif love.keyboard.isDown(player.control.up) then
+		    player.char = newChar('up')
+		elseif love.keyboard.isDown(player.control.right) then
+		    player.char = newChar('right')
+		end
+	end
+
 	function player.camAdjust(dt)
 		if player.stoppedX and player.stoppedY then
 			player.timer = player.timer - dt
@@ -113,7 +146,7 @@ function player_getUnsaveables(player)
 	end
 
 	function player.move(dt)
-		if player.x+player.img:getWidth() >= sw/3 and player.x <= sw -(sw /3) then
+		if player.x+player.img:getWidth() >= sw/2.25 and player.x <= sw -(sw /2.25) then
 			if love.keyboard.isDown(player.control.left) then
 				player.x = player.x - player.speed * dt
 				player.r = math.pi
@@ -126,15 +159,15 @@ function player_getUnsaveables(player)
 				player.stoppedX = true
 			end
 		end
-		if player.x+player.img:getWidth() > sw-(sw/3) then
-			player.x = sw-(sw/3)-player.img:getHeight()
+		if player.x+player.img:getWidth() > sw-(sw/2.25) then
+			player.x = sw-(sw/2.25)-player.img:getHeight()
 			World:move(-player.speed * dt, 0)
-		elseif player.x < sw/3 then
-			player.x = sw/3
+		elseif player.x < sw/2.25 then
+			player.x = sw/2.25
 			World:move(player.speed * dt, 0)
 		end
 			
-		if player.y+player.img:getHeight() >= sh/3 and player.y <= sh-(sh/3) then
+		if player.y+player.img:getHeight() >= sh/2.25 and player.y <= sh-(sh/2.25) then
 			if love.keyboard.isDown(player.control.up) then
 				player.y = player.y - player.speed * dt
 				player.r = 3*math.pi/2
@@ -147,11 +180,11 @@ function player_getUnsaveables(player)
 				player.stoppedY = true
 			end
 		end
-		if player.y+player.img:getHeight() > sh-(sh/3) then
-			player.y = sh-(sh/3)-player.img:getHeight()
+		if player.y+player.img:getHeight() > sh-(sh/2.25) then
+			player.y = sh-(sh/2.25)-player.img:getHeight()
 			World:move(0, -player.speed * dt)
-		elseif player.y < sh/3 then
-			player.y = sh/3
+		elseif player.y < sh/2.25 then
+			player.y = sh/2.25
 			World:move(0, player.speed * dt)
 		end
 	end
@@ -211,15 +244,18 @@ function newPlayer(name, x, y, control, imgPath)
 		spritesheets = newSpriteSheets('male' ,'light'),
 		state = 'idle',
 		r = 0,
-		timer = 100
+		timer = 100,
+		animState = 1,
+		animSpeed = 0.25
 	}
 	player.char = newChar('down')
+	player.activeChar = player.char[1]
 	player.canvas = love.graphics.newCanvas(player.w, player.h)
 	player.worldX = player.x - World:get('x')*World:get('tileSize')
 	player.worldY = player.y - World:get('y')*World:get('tileSize')
 
 	player_getUnsaveables(player)
-	World:moveTo(-posx*World:get('tileSize'), -posy*World:get('tileSize'))
+	World:moveTo(1-posx*World:get('tileSize'), 1-posy*World:get('tileSize'))
 
 	return player
 end

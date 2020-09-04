@@ -21,9 +21,11 @@ function newChar(facing)
         x,y = 0, 11
     end
 
-    local char = {
-        love.graphics.newQuad(x*(64), y*(64), 64, 64, 832, 1344) -- body
-        --etc
-    }
+    local char = {}
+
+    for i = 0, 8 do
+        char[i] = love.graphics.newQuad(i*(64), y*(64), 64, 64, 832, 1344)
+    end
+
     return char
 end

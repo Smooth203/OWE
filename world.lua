@@ -34,8 +34,6 @@ World = {
 			return self.batch
 		elseif p == 'map' then
 			return self.map
-		elseif p == 'heightmap' then
-			return self.heightmap
 		elseif p == 'time' then
 			return self.time
 		end
@@ -121,12 +119,12 @@ World = {
 				local tex = 1
 				if self.heightmap <= 0.25 then
 					tex = 4 -- set water
-				elseif self.heightmap > 0.25 and self.heightmap <= 0.3 then
+				elseif self.heightmap > 0.25 and self.heightmap <= 0.35 then
 					tex = 5 -- beach
 				end
 				if tex ~= 4 then
 					local rn = love.math.random(1,100)
-					if self.heightmap > 0.3 then
+					if self.heightmap > 0.35 then
 						-- in grassland
 						if rn == 1 then
 							tex = 3 -- flowers
@@ -135,7 +133,7 @@ World = {
 						elseif rn == 3 or rn == 4 then
 							tex = 2
 						end
-					elseif self.heightmap > 0.5 then
+					elseif self.heightmap > 0.55 then
 						--in inner land
 						if rn == 1 then
 							tex = 7 -- large stone
@@ -254,13 +252,13 @@ World = {
 			end
 		end
 		if init then
-			for x = 0, self.w do
-				for y = 0, self.h do
+			for x = -1, self.w do
+				for y = -1, self.h do
 					pcall(function()
-						local tile = self.world[x][y]
+						local tile = self.world[x+1][y+1]
 						self.map:add(self.quads[tile.texture], x*self.tileSize, y*self.tileSize)
-						World:checkTiles(tile,0.25,0.27,4,5)
-						World:checkTiles(tile,0.3,0.5,5,1)
+						World:checkTiles(tile,0.25,0.35,4,5)
+						World:checkTiles(tile,0.35,0.5,5,1)
 					end)
 				end
 			end

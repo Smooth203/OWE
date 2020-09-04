@@ -82,6 +82,14 @@ Entities = {
 		end
 	end,
 
+	keyreleased = function(self, key)
+		for i, e in ipairs(self.entities) do
+			if e.keypressed then
+				e:keyreleased(key)
+			end
+		end
+	end,
+
 	action = function(self,x,y,button,equipped)
 		local success = nil
 		for i, e in ipairs(self.entities) do
