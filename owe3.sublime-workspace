@@ -529,29 +529,10 @@
 			}
 		},
 		{
-			"file": "tree.lua",
-			"settings":
-			{
-				"buffer_size": 4358,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "world.lua",
 			"settings":
 			{
 				"buffer_size": 8225,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "ui.lua",
-			"settings":
-			{
-				"buffer_size": 12347,
-				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		}
@@ -604,7 +585,7 @@
 			]
 		]
 	],
-	"build_varint": "Love2D",
+	"build_varint": "",
 	"command_palette":
 	{
 		"height": 0.0,
@@ -644,12 +625,14 @@
 	],
 	"file_history":
 	[
+		"/C/Users/James/Documents/GitHub/OWE/tree.lua",
+		"/C/Users/James/Documents/GitHub/OWE/world.lua",
+		"/C/Users/James/Documents/GitHub/OWE/ui.lua",
 		"/C/Users/James/Documents/GitHub/OWE/char.lua",
 		"/C/Users/James/Documents/GitHub/OWE/main.lua",
 		"/C/Users/James/Documents/GitHub/OWE/items.lua",
 		"/C/Users/James/Documents/GitHub/OWE/entities.lua",
 		"/C/Users/James/Documents/GitHub/OWE/player.lua",
-		"/C/Users/James/Documents/GitHub/OWE/world.lua",
 		"/C/Users/James/Documents/GitHub/OWE/saveload.lua",
 		"/C/Users/James/Documents/GitHub/OWE/textures.lua",
 		"/C/Users/James/Documents/GitHub/OWE/save/save.txt",
@@ -769,9 +752,7 @@
 		"/home/james/git-repos/blueThumbStudy/index.html",
 		"/home/james/git-repos/blueThumbStudy/index.js",
 		"/home/james/Desktop/blackjackJS/old.js",
-		"/home/james/Desktop/blackjackJS/old.html",
-		"/home/james/Desktop/blackjackJS/index.css",
-		"/home/james/Desktop/blackjackJS/index.js"
+		"/home/james/Desktop/blackjackJS/old.html"
 	],
 	"find":
 	{
@@ -814,7 +795,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -842,42 +823,13 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "tree.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4358,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4049,
-								4049
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua Love/LuaLove.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 691.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 1,
 					"file": "world.lua",
-					"semi_transient": false,
+					"semi_transient": true,
 					"settings":
 					{
 						"buffer_size": 8225,
@@ -887,8 +839,8 @@
 						"selection":
 						[
 							[
-								6272,
-								6272
+								0,
+								0
 							]
 						],
 						"settings":
@@ -897,39 +849,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4644.0,
+						"translation.y": 3132.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "ui.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 12347,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7469,
-								7469
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua Love/LuaLove.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3501.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
