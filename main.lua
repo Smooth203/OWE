@@ -24,6 +24,11 @@ function love.load()
   		love.frame = 0
   	end
 
+  	--global timer dec -- counts down 100 seconds then repeats
+	globalTimerMax = 100  	
+  	globalTimerFloat = globalTimerMax
+  	globalTimer = math.floor(globalTimerFloat)
+
 	sw, sh = love.graphics.getDimensions()
 	titleFont = love.graphics.newFont(25)
 	font = love.graphics.newFont(12)
@@ -80,6 +85,13 @@ function love.update(dt)
 		    love.profiler.reset()
 		  end
 	end
+
+	--global timer
+	globalTimerFloat = globalTimerFloat - 1 * dt
+	if globalTimerFloat < 0 then
+		globalTimerFloat = globalTimerMax
+	end
+	globalTimer = math.floor(globalTimerFloat)
 
 end
 

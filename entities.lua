@@ -1,5 +1,6 @@
 local player = require 'player'
 local Structures = require 'structures'
+local Animals = require 'animals'
 local Items = require 'items'
 
 --entity types
@@ -21,6 +22,8 @@ Entities = {
 		for i, e in ipairs(self.entities) do
 			if e.Type == 'structure' then
 				structures.getUnsaveables(e, e.name)
+			elseif e.Type == 'animal' then
+				animalUnsaveables[e.name](e)
 			elseif e.Type == 'player' then
 				player_getUnsaveables(e)
 			end
@@ -31,6 +34,11 @@ Entities = {
 		self.entities = {
 			newPlayer('p1', sw/2, sh/2, 'wasd', 'assets/player.png')
 		}
+
+		--animals
+		--table.insert(self.entities, newAnimal('deer', love.timer.getTime(), 200, 200))
+
+		--trees
 		math.randomseed(os.time())
 		for x = 0, World:get('w') do
 			for y = 0, World:get('h') do
@@ -57,6 +65,9 @@ Entities = {
 	end,
 
 	update = function(self, dt)
+
+		updateAnimals()
+
 		local tileSize = World:get('tileSize')
 		for i, e in ipairs(self.entities) do
 			if e.update then
@@ -109,6 +120,10 @@ Entities = {
 				return i
 			end
 		end
+	end,
+
+	addEntity = function(self, entity)
+		table.insert(self.entities, entity)		
 	end,
 
 	removeEntity = function(self, id)

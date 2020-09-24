@@ -520,19 +520,28 @@
 	"buffers":
 	[
 		{
-			"file": "TODO.txt",
+			"file": "/C/Users/James/Documents/GitHub/waggett/webFiles/public/index.html",
 			"settings":
 			{
-				"buffer_size": 976,
+				"buffer_size": 2620,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "world.lua",
+			"file": "/C/Users/James/Documents/GitHub/waggett/webFiles/public/knowledgebase/kb.html",
 			"settings":
 			{
-				"buffer_size": 8225,
+				"buffer_size": 2273,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/James/Documents/GitHub/waggett/webFiles/public/styleDesktop.css",
+			"settings":
+			{
+				"buffer_size": 2957,
 				"line_ending": "Windows"
 			}
 		}
@@ -621,10 +630,17 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/James/Documents/GitHub/OWE"
 	],
 	"file_history":
 	[
+		"/C/Users/James/Documents/GitHub/waggett/webFiles/public/styleTablet.css",
+		"/C/Users/James/Documents/GitHub/waggett/webFiles/public/styleDesktop.css",
+		"/C/Users/James/Documents/GitHub/waggett/webFiles/public/styleMobile.css",
+		"/C/Users/James/Documents/GitHub/waggett/webFiles/public/blog/blog.html",
+		"/C/Users/James/Documents/GitHub/waggett/webFiles/public/knowledgebase/kb.js",
+		"/C/Users/James/Documents/GitHub/waggett/webFiles/public/kb/kb.js",
+		"/C/Users/James/Documents/GitHub/waggett/webFiles/public/kb/kb.html",
+		"/C/Users/James/Documents/GitHub/OWE/TODO.txt",
 		"/C/Users/James/Documents/GitHub/OWE/tree.lua",
 		"/C/Users/James/Documents/GitHub/OWE/world.lua",
 		"/C/Users/James/Documents/GitHub/OWE/ui.lua",
@@ -744,15 +760,7 @@
 		"/home/james/git-repos/waggett/webFiles/storage.rules",
 		"/home/james/git-repos/waggett/webFiles/public/login.html",
 		"/home/james/git-repos/waggett/webFiles/public/firebaseSDK.js",
-		"/home/james/git-repos/waggett/webFiles/public/wedding/photos.css",
-		"/home/james/git-repos/waggett/webFiles/public/wedding/photosM.css",
-		"/home/james/git-repos/waggett/webFiles/public/wedding/photos.html",
-		"/home/james/git-repos/waggett/webFiles/public/src/jw.js",
-		"/home/james/git-repos/waggett/webFiles/public/src/firebaseTools.js",
-		"/home/james/git-repos/blueThumbStudy/index.html",
-		"/home/james/git-repos/blueThumbStudy/index.js",
-		"/home/james/Desktop/blackjackJS/old.js",
-		"/home/james/Desktop/blackjackJS/old.html"
+		"/home/james/git-repos/waggett/webFiles/public/wedding/photos.css"
 	],
 	"find":
 	{
@@ -795,64 +803,93 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "TODO.txt",
+					"file": "/C/Users/James/Documents/GitHub/waggett/webFiles/public/index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 976,
+						"buffer_size": 2620,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7,
-								7
+								1401,
+								1401
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 18.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Users/James/Documents/GitHub/waggett/webFiles/public/knowledgebase/kb.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2273,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1567,
+								1567
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 108.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "world.lua",
-					"semi_transient": true,
+					"buffer": 2,
+					"file": "/C/Users/James/Documents/GitHub/waggett/webFiles/public/styleDesktop.css",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8225,
+						"buffer_size": 2957,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								419,
+								425
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Lua Love/LuaLove.sublime-syntax",
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3132.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
