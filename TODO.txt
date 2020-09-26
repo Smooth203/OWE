@@ -1,6 +1,10 @@
 
 HIGH
 {
+
+    animals/deer -> random grazing - countdown and move to random pos in radius/square?
+                 `-> Startling - if player is in radius, [leg it]
+
     time doesnt work
 	DNC
     {

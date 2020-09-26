@@ -17,26 +17,24 @@ end
 
 function updateAnimals()
 	if globalTimer%10 == 0 then -- if multiple of 10 then x%10 = 0
-		animalCounts = {}
-
 		for i, animalType in ipairs(animalTypes) do
-			if animalCounts[animalType] then
-				for i, e in ipairs(Entities:get()) do
-					if e.Type == 'animal' then
-						animalCounts[e.name] = animalCounts[e.name] + 1
-					end
-				end
-			else
+			if not animalCounts[animalType] then
 				animalCounts[animalType] = 0
 			end
 		end
 
 		for i, animalType in ipairs(animalTypes) do
 			for i = 0, 10 do
-				if animalCounts[animalType] <= 5 then
-					Entities:addEntity(newAnimal(animalType, love.timer.getTime(), math.random(200, 400), math.random(200, 400)))
-					animalCounts[animalType] = animalCounts[animalType] + 1
-					print(animalType..' +1')
+				if animalCounts[animalType] < 15 then
+					math.randomseed(os.time())
+					local spawnX = love.math.random(0, World:get('w'))
+					math.randomseed(os.time()+1)
+					local spawnY = love.math.random(0, World:get('h'))
+					if World:getTile(spawnX, spawnY).texture ~= 4 and not col(math.floor(World:get('x')+(spawnX*World:get('tileSize'))), math.floor(World:get('y')+(spawnY*World:get('tileSize'))),World:get('w'),World:get('h'), 0,0,sw,sh) then
+						
+						Entities:addEntity(newAnimal(animalType, love.timer.getTime(), spawnX, spawnY), Entities:getPlayerIndex()-1)
+						animalCounts[animalType] = animalCounts[animalType] + 1
+					end
 				end
 			end
 		end

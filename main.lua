@@ -25,7 +25,7 @@ function love.load()
   	end
 
   	--global timer dec -- counts down 100 seconds then repeats
-	globalTimerMax = 100  	
+	globalTimerMax = 99	
   	globalTimerFloat = globalTimerMax
   	globalTimer = math.floor(globalTimerFloat)
 
@@ -73,6 +73,14 @@ function love.update(dt)
 		if not paused then
 			World:update(dt)
 			Entities:update(dt)
+			
+			--global timer
+			globalTimerFloat = globalTimerFloat - 1 * dt
+			if globalTimerFloat < 0 then
+				globalTimerFloat = globalTimerMax
+			end
+			globalTimer = math.floor(globalTimerFloat)
+
 		end
 	else
 		Menu:update(dt)
@@ -86,12 +94,6 @@ function love.update(dt)
 		  end
 	end
 
-	--global timer
-	globalTimerFloat = globalTimerFloat - 1 * dt
-	if globalTimerFloat < 0 then
-		globalTimerFloat = globalTimerMax
-	end
-	globalTimer = math.floor(globalTimerFloat)
 
 end
 

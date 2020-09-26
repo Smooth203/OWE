@@ -58,7 +58,6 @@ function player_getUnsaveables(player)
 			love.graphics.clear()
 			love.graphics.draw(player.spritesheets[1], player.activeChar, 0, 0)
 		love.graphics.setCanvas()
-		--World:getTile(math.floor((player.x-World:get('x'))/World:get('tileSize')), math.floor((player.y-World:get('y'))/World:get('tileSize')))
 	end
 
 	function player.mousepressed(self, x, y, button)

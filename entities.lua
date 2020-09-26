@@ -35,9 +35,6 @@ Entities = {
 			newPlayer('p1', sw/2, sh/2, 'wasd', 'assets/player.png')
 		}
 
-		--animals
-		--table.insert(self.entities, newAnimal('deer', love.timer.getTime(), 200, 200))
-
 		--trees
 		math.randomseed(os.time())
 		for x = 0, World:get('w') do
@@ -122,8 +119,12 @@ Entities = {
 		end
 	end,
 
-	addEntity = function(self, entity)
-		table.insert(self.entities, entity)		
+	addEntity = function(self, entity, pos)
+		if pos == nil then
+			table.insert(self.entities, entity)
+		else
+			table.insert(self.entities, pos, entity)
+		end
 	end,
 
 	removeEntity = function(self, id)
@@ -140,6 +141,14 @@ Entities = {
 		for i, e in ipairs(self.entities) do
 			if e.name == 'p1' then
 				return e
+			end
+		end
+	end,
+
+	getPlayerIndex = function(self)
+		for i, e in ipairs(self.entities) do
+			if e.Type == 'player' then
+				return i
 			end
 		end
 	end,
