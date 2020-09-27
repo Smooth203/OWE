@@ -12,7 +12,46 @@ function newAnimal(name, id, x, y)
 end
 
 function animals.getUnsaveables(animal)
-	return animalUnsaveables[name](animal)
+	return getAnimalUnsaveables(animal)
+end
+
+getAnimalUnsaveables = function(animal)
+	function animal.draw(self)
+		love.graphics.rectangle('fill', math.floor(World:get('x')+(animal.worldX)), math.floor(World:get('y')+(animal.worldY)), animal.w, animal.h)
+	end
+
+	function animal.update(self, dt)
+
+		--animal.x = animal.worldX/World:get('tileSize')
+		--animal.y = animal.worldY/World:get('tileSize')
+
+
+		-- moving
+		if animal.worldX > animal.targetX*World:get('tileSize') then
+			animal.worldX = animal.worldX - 1
+		elseif animal.worldX < animal.targetX*World:get('tileSize') then
+			animal.worldX = animal.worldX + 1
+		end
+		if animal.worldY > animal.targetY*World:get('tileSize') then
+			animal.worldY = animal.worldY - 1
+		elseif animal.worldY < animal.targetY*World:get('tileSize') then
+			animal.worldY = animal.worldY + 1
+		end
+
+		-- random grazing
+		if animal.grazingValue == globalTimer%15 then
+			
+			math.randomseed(os.time())
+			animal.targetX = math.random(animal.x-5, animal.x+5)
+			animal.targetY = math.random(animal.y-5, animal.y+5)
+
+			animal.grazingTimer = love.math.random(0, 15)
+		end
+
+		-- startling
+
+
+	end
 end
 
 function updateAnimals()
@@ -25,7 +64,7 @@ function updateAnimals()
 
 		for i, animalType in ipairs(animalTypes) do
 			for i = 0, 10 do
-				if animalCounts[animalType] < 15 then
+				if animalCounts[animalType] > -15 then
 					math.randomseed(os.time())
 					local spawnX = love.math.random(0, World:get('w'))
 					math.randomseed(os.time()+1)

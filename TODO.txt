@@ -2,6 +2,10 @@
 HIGH
 {
 
+    deer = multiple deer spawned in a second -> same grazing value - get unique seeds (line 37 : animal_deer.lua) 
+
+
+
     animals/deer -> random grazing - countdown and move to random pos in radius/square?
                  `-> Startling - if player is in radius, [leg it]
 

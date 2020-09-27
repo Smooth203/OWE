@@ -17,45 +17,6 @@
 -- 	end,
 -- }
 
-animalUnsaveables['deer'] = function(animal)
-	function animal.draw(self)
-		love.graphics.rectangle('fill', math.floor(World:get('x')+(animal.worldX)), math.floor(World:get('y')+(animal.worldY)), animal.w, animal.h)
-	end
-
-	function animal.update(self, dt)
-
-		--animal.x = animal.worldX/World:get('tileSize')
-		--animal.y = animal.worldY/World:get('tileSize')
-
-
-		-- moving
-		if animal.worldX > animal.targetX*World:get('tileSize') then
-			animal.worldX = animal.worldX - 1
-		elseif animal.worldX < animal.targetX*World:get('tileSize') then
-			animal.worldX = animal.worldX + 1
-		end
-		if animal.worldY > animal.targetY*World:get('tileSize') then
-			animal.worldY = animal.worldY - 1
-		elseif animal.worldY < animal.targetY*World:get('tileSize') then
-			animal.worldY = animal.worldY + 1
-		end
-
-		-- random grazing
-		if animal.grazingValue == globalTimer%15 then
-			
-			math.randomseed(os.time())
-			animal.targetX = math.random(animal.x-5, animal.x+5)
-			animal.targetY = math.random(animal.y-5, animal.y+5)
-
-			animal.grazingTimer = love.math.random(0, 15)
-		end
-
-		-- startling
-
-
-	end
-end
-
 animals['deer'] = function(id, x, y)
 	animal = {}
 	animal.id = id
@@ -73,9 +34,10 @@ animals['deer'] = function(id, x, y)
 	animal.targetX = animal.x
 	animal.targetY = animal.y
 
-	animal.grazingValue = love.math.random(0, 15)
+	math.randomseed(os.time()) -------------------------------------------THIS
+	animal.grazingValue = math.random(0, 15)
 
-	animalUnsaveables['deer'](animal)
+	getAnimalUnsaveables(animal)
 
 	return animal
 end
