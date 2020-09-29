@@ -34,7 +34,7 @@ animals['deer'] = function(id, x, y)
 	animal.targetX = animal.x
 	animal.targetY = animal.y
 
-	math.randomseed(os.time()) -------------------------------------------THIS
+	math.randomseed(os.time()) 
 	animal.grazingValue = math.random(0, 15)
 
 	getAnimalUnsaveables(animal)

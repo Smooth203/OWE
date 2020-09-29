@@ -31,7 +31,6 @@ function player_getUnsaveables(player)
 
 		if player.stoppedX and player.stoppedY then
 			player.state = 'idle'
-			player.char = newChar('down')
 		else
 			player.state = 'walk'
 		end
@@ -44,8 +43,8 @@ function player_getUnsaveables(player)
 
 		--char
 		if player.state == 'idle' then
-			player.char = newChar('down')
-			player.animState = 1
+			player.animState = 0
+			player.activeChar = player.char[math.floor(player.animState)]
 		elseif player.state == 'walk' then
 			--anim
 		    player.activeChar = player.char[math.floor(player.animState)]
@@ -80,22 +79,32 @@ function player_getUnsaveables(player)
 					print(tile.x, tile.y)
 				end
 			end
+
+			--attack/use item
+			player.char = newChar(player.dir .. 'Attack')
+			player.state = 'attacking'
+
 		end
 	end
 
 	function player.keypressed(self, key)
 		if key == player.control.down then
+			player.dir = 'down'
 			player.char = newChar('down')
 		elseif key == player.control.left then
+			player.dir = 'left'
 		    player.char = newChar('left')
 		elseif key == player.control.up then
+			player.dir = 'up'
 		    player.char = newChar('up')
 		elseif key == player.control.right then
+			player.dir = 'right'
 		    player.char = newChar('right')
 		end
 	end
 
 	function player.keyreleased(self, key)
+
 		if key == player.control.down then
 			player:checkKey()
 		elseif key == player.control.left then
@@ -105,6 +114,7 @@ function player_getUnsaveables(player)
 		elseif key == player.control.right then
 			player:checkKey()		    
 		end
+
 	end
 
 	function player.checkKey(self)
@@ -243,6 +253,7 @@ function newPlayer(name, x, y, control, imgPath)
 		},
 		imgPath = imgPath,
 		spritesheets = newSpriteSheets('male' ,'light'),
+		dir = 'down',
 		state = 'idle',
 		r = 0,
 		timer = 100,

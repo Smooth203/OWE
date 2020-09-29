@@ -23,7 +23,7 @@ Entities = {
 			if e.Type == 'structure' then
 				structures.getUnsaveables(e, e.name)
 			elseif e.Type == 'animal' then
-				animalUnsaveables[e.name](e)
+				getAnimalUnsaveables(e)
 			elseif e.Type == 'player' then
 				player_getUnsaveables(e)
 			end
@@ -42,7 +42,7 @@ Entities = {
 				if World:getTile(x,y).texture == 1 then
 					local r = math.random(0, 100)
 					if r == 0 then
-						local id = love.timer.getTime()
+						local id = love.timer.getTime()+(x*y)
 						local tree, top = newStructure(id, 'tree', x, y)
 						table.insert(self.entities, 1, tree)
 						table.insert(self.entities, top)

@@ -18,6 +18,7 @@ gameState = 'menu'
 profileDebug = false
 
 function love.load()
+
 	if profileDebug then
 		love.profiler = require('profile') 
   		love.profiler.start()
@@ -25,7 +26,7 @@ function love.load()
   	end
 
   	--global timer dec -- counts down 100 seconds then repeats
-	globalTimerMax = 99	
+	globalTimerMax = 100
   	globalTimerFloat = globalTimerMax
   	globalTimer = math.floor(globalTimerFloat)
 
@@ -75,7 +76,7 @@ function love.update(dt)
 			Entities:update(dt)
 			
 			--global timer
-			globalTimerFloat = globalTimerFloat - 1 * dt
+			globalTimerFloat = globalTimerFloat - 10 * dt
 			if globalTimerFloat < 0 then
 				globalTimerFloat = globalTimerMax
 			end
