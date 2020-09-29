@@ -139,7 +139,7 @@ Entities = {
 
 	getPlayer = function(self)
 		for i, e in ipairs(self.entities) do
-			if e.name == 'p1' then
+			if e.Type == 'player' then
 				return e
 			end
 		end

@@ -24,6 +24,8 @@ animals['deer'] = function(id, x, y)
 	animal.name = 'deer'
 	animal.maxHealth = 100
 	animal.health = animal.maxHealth
+	animal.speed = 1
+
 	animal.x = x -- tiles
 	animal.y = y -- tiles
 	animal.worldX = animal.x*World:get('tileSize')
@@ -35,7 +37,7 @@ animals['deer'] = function(id, x, y)
 	animal.targetY = animal.y
 
 	math.randomseed(os.time()) 
-	animal.grazingValue = math.random(0, 15)
+	animal.grazingValue = math.random(0, 100)
 
 	getAnimalUnsaveables(animal)
 

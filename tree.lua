@@ -68,6 +68,10 @@ getUnsaveables = function(t, name)
 				t.dmgAlert.timer = 0
 			end
 
+			--health regen
+			if t.health < t.maxHealth and t.dmgAlert.timer == 0 and t.chopped == false then
+				t.health = t.health + 1 * dt
+			end
 
 			local tileSize = World:get('tileSize')
 			local Wx, Wy = World:get('x'), World:get('y')

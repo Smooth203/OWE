@@ -22,35 +22,41 @@ getAnimalUnsaveables = function(animal)
 
 	function animal.update(self, dt)
 
-		--animal.x = animal.worldX/World:get('tileSize')
-		--animal.y = animal.worldY/World:get('tileSize')
-
-
 		-- moving
 		if animal.worldX > animal.targetX*World:get('tileSize') then
-			animal.worldX = animal.worldX - 1
+			animal.worldX = animal.worldX - 1 * dt * animal.speed
 		elseif animal.worldX < animal.targetX*World:get('tileSize') then
-			animal.worldX = animal.worldX + 1
+			animal.worldX = animal.worldX + 1 * dt * animal.speed
+		else
+			animal.speed = 1
 		end
 		if animal.worldY > animal.targetY*World:get('tileSize') then
-			animal.worldY = animal.worldY - 1
+			animal.worldY = animal.worldY - 1 * dt * animal.speed
 		elseif animal.worldY < animal.targetY*World:get('tileSize') then
-			animal.worldY = animal.worldY + 1
+			animal.worldY = animal.worldY + 1 * dt * animal.speed
+		else
+			animal.speed = 1
 		end
 
 		-- random grazing
-		if animal.grazingValue == globalTimer%50 then
+		if animal.grazingValue == globalTimer then
 			
 			math.randomseed(os.time())
 			animal.targetX = math.random(animal.x-5, animal.x+5)
 			animal.targetY = math.random(animal.y-5, animal.y+5)
 
-			animal.grazingValue = love.math.random(0, 15)
+			animal.grazingValue = love.math.random(0, 100)
 		end
 
 		-- startling
-
-
+		local player = Entities:getPlayer()
+		if col(player.x-player.w/2,player.y-player.h/2,player.w,player.h, World:get('x')+animal.worldX-World:get('tileSize')*5,World:get('y')+animal.worldY-World:get('tileSize')*5,World:get('tileSize')*10,World:get('tileSize')*10) then
+			
+			math.randomseed(os.time())
+			animal.targetX = math.random(animal.x-100, animal.x+100)
+			animal.targetY = math.random(animal.y-100, animal.y+100)
+			animal.speed = 10
+		end
 	end
 end
 

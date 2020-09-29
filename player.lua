@@ -29,11 +29,16 @@ function player_getUnsaveables(player)
 	function player.update(self, dt)
 		player.move(dt)
 
-		if player.stoppedX and player.stoppedY then
-			player.state = 'idle'
-		else
+		if (love.keyboard.isDown(player.control.down) or love.keyboard.isDown(player.control.up) or love.keyboard.isDown(player.control.left) or love.keyboard.isDown(player.control.right)) and player.state ~= 'attacking' then
+
 			player.state = 'walk'
 		end
+
+		-- if player.stoppedX and player.stoppedY then
+		-- 	player.state = 'idle'
+		-- else
+		-- 	player.state = 'walk'
+		-- end
 
 		player.worldX = player.x - World:get('x')*World:get('tileSize')
 		player.worldY = player.y - World:get('y')*World:get('tileSize')
@@ -52,20 +57,15 @@ function player_getUnsaveables(player)
 		    if player.animState > 8 then
 		    	player.animState = 1
 		    end
-		end
-		love.graphics.setCanvas(player.canvas)
-			love.graphics.clear()
-			love.graphics.draw(player.spritesheets[1], player.activeChar, 0, 0)
-		love.graphics.setCanvas()
-	end
+		elseif player.state == 'attacking' then
+			player.activeChar = player.char[math.floor(player.animState)]
+			player.animState = player.animState + 1 * player.animSpeed
+			if player.animState > 5 then
 
-	function player.mousepressed(self, x, y, button)
-		if button == 1 then
-			local tile = Ui:get('mouse').tile
-			if col(Ui:get('mouse').x,Ui:get('mouse').y,0,0, player.x-100, player.y-100,200,200) then
+				local tile = Ui:get('mouse').tile
 				--Checks for structure at coords. If not, check the ground interactions
 				local _, equipped = Ui:get('inv')
-				if not Entities:action(x,y,button,equipped) then
+				if not Entities:action(Ui:get('mouse').x,Ui:get('mouse').y,button,equipped) then
 					if tile.texture == 3 then
 						if Ui:addItem('flower', 'inv') then
 							World:setTile(tile.x, tile.y, 1)
@@ -78,12 +78,31 @@ function player_getUnsaveables(player)
 					print()
 					print(tile.x, tile.y)
 				end
+
+				player.char = newChar(player.dir)
+				player.state = 'idle'
+		
 			end
+		end
 
-			--attack/use item
-			player.char = newChar(player.dir .. 'Attack')
-			player.state = 'attacking'
+		love.graphics.setCanvas(player.canvas)
+			love.graphics.clear()
+			love.graphics.draw(player.spritesheets[1], player.activeChar, 0, 0)
+		love.graphics.setCanvas()
+	end
 
+	function player.mousepressed(self, x, y, button)
+		if button == 1 then
+
+			local _, equipped = Ui:get('inv')
+			Entities:action(x,y,button,equipped)
+
+			if col(Ui:get('mouse').x,Ui:get('mouse').y,0,0, player.x-100, player.y-100,200,200) then
+				--attack/use item
+				player.char = newChar(player.dir .. 'Attack')
+				player.state = 'attacking'
+				player.animState = 0
+			end
 		end
 	end
 
@@ -104,6 +123,8 @@ function player_getUnsaveables(player)
 	end
 
 	function player.keyreleased(self, key)
+
+		player.state = 'idle'
 
 		if key == player.control.down then
 			player:checkKey()
@@ -240,7 +261,7 @@ function newPlayer(name, x, y, control, imgPath)
 		id = love.timer.getTime(),
 		Type = 'player',
 		name = name,
-		x = x,
+		x = x, -- tiles
 		y = y,
 		w = 64,
 		h = 64,
