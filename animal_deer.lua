@@ -24,7 +24,8 @@ animals['deer'] = function(id, x, y)
 	animal.name = 'deer'
 	animal.maxHealth = 100
 	animal.health = animal.maxHealth
-	animal.speed = 1
+	animal.speed = 100
+	animal.speedM = 1
 
 	animal.x = x -- tiles
 	animal.y = y -- tiles
