@@ -3,7 +3,7 @@ local char = require 'char'
 function player_getUnsaveables(player)
 
 	player.img = love.graphics.newImage(player.imgPath)
-	player.spritesheets = newSpriteSheets('male' ,'light')
+	player.spritesheets = newSpriteSheets('male' ,'light', 'white', 'green', 'leather')
 	player.char = newChar('down')
 	player.activeChar = player.char[1]
 	player.canvas = love.graphics.newCanvas(player.w, player.h)
@@ -87,18 +87,23 @@ function player_getUnsaveables(player)
 
 		love.graphics.setCanvas(player.canvas)
 			love.graphics.clear()
-			love.graphics.draw(player.spritesheets[1], player.activeChar, 0, 0)
+			for i,v in pairs(player.spritesheets) do
+				pcall(function()
+					love.graphics.draw(player.spritesheets[i], player.activeChar, 0, 0)
+				end)
+			end
 		love.graphics.setCanvas()
 	end
 
 	function player.mousepressed(self, x, y, button)
 		if button == 1 then
 
-			local _, equipped = Ui:get('inv')
-			Entities:action(x,y,button,equipped)
 
 			if col(Ui:get('mouse').x,Ui:get('mouse').y,0,0, player.x-100, player.y-100,200,200) then
 				--attack/use item
+				local _, equipped = Ui:get('inv')
+				Entities:action(x,y,button,equipped)
+				
 				player.char = newChar(player.dir .. 'Attack')
 				player.state = 'attacking'
 				player.animState = 0
@@ -273,7 +278,6 @@ function newPlayer(name, x, y, control, imgPath)
 			right = right
 		},
 		imgPath = imgPath,
-		spritesheets = newSpriteSheets('male' ,'light'),
 		dir = 'down',
 		state = 'idle',
 		r = 0,

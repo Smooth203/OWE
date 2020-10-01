@@ -14,6 +14,12 @@ getUnsaveables = function(t, name)
 			timer = 0
 		}
 
+		t.dmgBar = love.graphics.newImage('assets/healthbar.png')
+		t.dmgBarQuads = {}
+		for i = 0, 6 do
+			t.dmgBarQuads[i+1] = love.graphics.newQuad(0, 8*i, 28, 8, 28, 56)
+		end
+
 		t.quad = love.graphics.newQuad(texture.x*World:get('tileSize'), texture.y*World:get('tileSize'), texture.w*World:get('tileSize'), texture.h*World:get('tileSize'), World:get('tileset'):getWidth(), World:get('tileset'):getHeight())
 
 		function t.draw(self)
@@ -23,10 +29,9 @@ getUnsaveables = function(t, name)
 				)
 
 			if t.dmgAlert.timer > 0 then
+				love.graphics.draw(t.dmgBar, t.dmgBarQuads[math.min(math.floor(8-((t.health/t.maxHealth)*7)), 7)], (World:get('tileSize'))+math.floor(World:get('x')+(t.x*World:get('tileSize'))), (2*World:get('tileSize'))+math.floor(World:get('y')+(t.y*World:get('tileSize'))), 0, 2, 2, 28/5)
 				love.graphics.setColor(0,0,0,1)
-				love.graphics.rectangle('fill', (0.5*World:get('tileSize'))+math.floor(World:get('x')+(t.x*World:get('tileSize'))), (2*World:get('tileSize'))+math.floor(World:get('y')+(t.y*World:get('tileSize'))), (2*World:get('tileSize')), 10)
-				love.graphics.setColor(1,0,0,1)
-				love.graphics.rectangle('fill', (0.5*World:get('tileSize'))+math.floor(World:get('x')+(t.x*World:get('tileSize'))), (2*World:get('tileSize'))+math.floor(World:get('y')+(t.y*World:get('tileSize'))), (2*World:get('tileSize'))*(t.health/t.maxHealth), 10)
+				love.graphics.print(tostring((t.health/t.maxHealth)*100).."%", (World:get('tileSize'))+math.floor(World:get('x')+(t.x*World:get('tileSize'))), (2*World:get('tileSize'))+math.floor(World:get('y')+(t.y*World:get('tileSize'))), 0,1,1, -28/5)
 				love.graphics.setColor(1,1,1,1)
 			end
 		end

@@ -42,19 +42,19 @@ getAnimalUnsaveables = function(animal)
 		if animal.grazingValue == globalTimer then
 			
 			math.randomseed(os.time())
-			animal.targetX = math.random(animal.x-5, animal.x+5)
-			animal.targetY = math.random(animal.y-5, animal.y+5)
+			animal.targetX = math.random(animal.x-10, animal.x+10)
+			animal.targetY = math.random(animal.y-10, animal.y+10)
 
-			animal.grazingValue = love.math.random(0, 200)
+			animal.grazingValue = love.math.random(0, 105)
 		end
 
 		-- startling
 		local player = Entities:getPlayer()
-		if col(player.x-player.w/2,player.y-player.h/2,player.w,player.h, World:get('x')+animal.worldX-World:get('tileSize')*1,World:get('y')+animal.worldY-World:get('tileSize')*1,World:get('tileSize')*5,World:get('tileSize')*5) then
+		if col(player.x-player.w/2,player.y-player.h/2,player.w,player.h, World:get('x')+animal.worldX-World:get('tileSize')*1,World:get('y')+animal.worldY-World:get('tileSize')*1,World:get('tileSize')*10,World:get('tileSize')*10) then
 			
 			math.randomseed(os.time())
-			animal.targetX = math.random(animal.x-100, animal.x+100)
-			animal.targetY = math.random(animal.y-100, animal.y+100)
+			animal.targetX = math.random(animal.x-50, animal.x+50)
+			animal.targetY = math.random(animal.y-50, animal.y+50)
 			animal.speedM = 2
 		end
 	end
