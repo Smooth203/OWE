@@ -14,6 +14,7 @@ require 'entities'
 require 'ui'
 require 'menu'
 gameState = 'menu'
+paused = 0
 
 profileDebug = false
 
@@ -53,9 +54,6 @@ function love.draw()
 		-- love.graphics.setColor(1,1,1,1)
 		
 		Ui:draw()
-
-		love.graphics.draw(World:get('map'), 0, 0, 0,  0.01, 0.01)
-		love.graphics.draw(Entities:getPlayer().img, (Entities:getPlayer().x-(World:get('x')))*0.01, (Entities:getPlayer().y-(World:get('y')))*0.01, 0, 0.1, 0.1)
 	else
 		Menu:draw()
 	end
@@ -71,7 +69,7 @@ function love.update(dt)
 	sw, sh = love.graphics.getDimensions()
 	if gameState == 'game' then
 		Ui:update(dt)
-		if not paused then
+		if paused == 0 then
 			World:update(dt)
 			Entities:update(dt)
 			
@@ -101,7 +99,7 @@ end
 function love.mousepressed(x,y,button)
 	if gameState == 'game' then
 		Ui:mousepressed(x,y,button)
-		if not paused then
+		if paused == 0 then
 			Entities:mousepressed(x,y,button)
 		end
 	else
@@ -112,7 +110,7 @@ end
 function love.keypressed(key)
 	if gameState == 'game' then
 		Ui:keypressed(key)
-		if not paused then
+		if paused == 0 then
 			Entities:keypressed(key)
 			if key == 'f5' then
 				save()
@@ -126,7 +124,7 @@ end
 function love.keyreleased(key)
 	if gameState == 'game' then
 		--Ui:keyreleased(key)
-		if not paused then
+		if paused == 0 then
 			Entities:keyreleased(key)
 			if key == 'f5' then
 				save()

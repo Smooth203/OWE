@@ -7,6 +7,9 @@ message = {
 }
 
 Ui = {
+
+	map = {x=0,y=0,show=false},
+
 	get = function(self, p)
 		if p == 'mouse' then
 			return self.mouse
@@ -46,6 +49,8 @@ Ui = {
 			showOptions = false,
 			item = {}
 		}
+
+		--
 	end,
 
 	load = function(self, inv, equipped)
@@ -63,6 +68,7 @@ Ui = {
 	end,
 
 	draw = function(self)
+		--inv
 		love.graphics.setColor(0.8, 0.8, 0.8, 1)
 		love.graphics.rectangle('fill', (sw/2)-(self.invSlotSize*(#self.inv/2)), sh-self.invSlotSize, self.invSlotSize*(#self.inv), self.invSlotSize)
 
@@ -124,7 +130,7 @@ Ui = {
 			love.graphics.print(message.text, message.x, message.y)
 		end		
 
-		if paused then
+		if paused == 1 then
 			love.graphics.setColor(0.4,0.4,0.4,0.5)
 			love.graphics.rectangle('fill', 0,0,sw,sh)
 			love.graphics.setColor(1,1,1,1)
@@ -143,10 +149,15 @@ Ui = {
 
 		love.graphics.setColor(1,1,1,1)
 
+		if self.map.show then
+			love.graphics.draw(World:get('map'), self.map.x, self.map.y, 0,  0.1, 0.1)
+			love.graphics.rectangle('fill', self.map.x+Entities:getPlayer().x-(World:get('x'))*0.1, self.map.y+(Entities:getPlayer().y-(World:get('y')))*0.1, 10, 10)
+		end
+
 	end,
 
 	update = function(self, dt)
-		if not paused then
+		if paused == 0 then
 			Ui:updateMouse()
 
 			--message
@@ -156,6 +167,18 @@ Ui = {
 				message.active = false
 			end
 
+		elseif paused == 2 then
+			local p = Entities:getPlayer()
+			if love.keyboard.isDown(p.control.up) then
+				self.map.y = self.map.y + dt * 100
+			elseif love.keyboard.isDown(p.control.down) then
+				self.map.y = self.map.y - dt * 100
+			end
+			if love.keyboard.isDown(p.control.right) then
+				self.map.x = self.map.x - dt * 100
+			elseif love.keyboard.isDown(p.control.left) then
+				self.map.x = self.map.x + dt * 100
+			end
 		end
 	end,
 
@@ -177,7 +200,7 @@ Ui = {
 
 	mousepressed = function(self, x, y, button)
 		if button == 1 then
-			if not paused then
+			if paused == 0 then
 				--Inv
 				for i, slot in ipairs(self.inv) do
 					local slotX, slotY = (sw/2)-(self.invSlotSize*(#self.inv/2))+((i-1)*self.invSlotSize), sh-self.invSlotSize
@@ -228,14 +251,14 @@ Ui = {
 					Ui:unequip()
 					print('Un-Equipped')
 				end
-			else
+			elseif paused == 1 then
 				if col(x,y,0,0, (sw/2)-100,(sh/2)-50,200,100) then
 					save()
 					love.event.quit()
 				end
 			end
 		elseif button == 2 then
-			if not paused then
+			if paused == 0 then
 				for i, slot in ipairs(self.inv) do
 					local slotX, slotY = (sw/2)-(self.invSlotSize*(#self.inv/2))+((i-1)*self.invSlotSize), sh-self.invSlotSize
 					if col(x,y,0,0, slotX, slotY-(self.invSlotSize/2), self.invSlotSize, self.invSlotSize/2) and slot.showOptions == true then
@@ -249,10 +272,18 @@ Ui = {
 
 	keypressed = function(self, key)
 		if key == 'escape' then
-			if paused then
-				paused = false
+			if paused ~= 0 then
+				paused = 0
 			else
-				paused = true
+				paused = 1
+			end
+		elseif key == 'm' then
+			if self.map.show then
+				self.map.show = false
+				paused = 0
+			else
+				self.map.show = true
+				paused = 2
 			end
 		end
 	end,
