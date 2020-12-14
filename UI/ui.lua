@@ -1,4 +1,4 @@
-local Items = require 'items'
+local Items = require 'entities/items'
 message = {
 	active = false,
 	timer = 0,
@@ -65,6 +65,7 @@ Ui = {
 		if self.equipped.item.name then
 			self.equipped.item.img = love.graphics.newImage(self.equipped.item.imgPath)
 		end
+
 	end,
 
 	draw = function(self)
@@ -150,7 +151,7 @@ Ui = {
 		love.graphics.setColor(1,1,1,1)
 
 		if self.map.show then
-			love.graphics.draw(World:get('map'), self.map.x, self.map.y, 0,  0.1, 0.1)
+			love.graphics.draw(World:get('map'), self.map.x, self.map.y, 0,  0.075, 0.075)
 			love.graphics.rectangle('fill', self.map.x+Entities:getPlayer().x-(World:get('x'))*0.1, self.map.y+(Entities:getPlayer().y-(World:get('y')))*0.1, 10, 10)
 		end
 
@@ -392,7 +393,7 @@ Ui = {
 	end,
 
 	unequip = function(self)
-		Ui:addItem(string.lower(self.equipped.item.name), 'inv')
+		Ui:addItem(string.lower(self.equipped.item.name), 'inv', nil, nil, self.equipped.item.quant)
 		Ui:destroyItem(self.equipped)
 	end,
 

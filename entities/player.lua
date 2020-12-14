@@ -1,4 +1,4 @@
-local char = require 'char'
+local char = require 'entities/char'
 
 function player_getUnsaveables(player)
 

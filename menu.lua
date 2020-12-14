@@ -6,7 +6,7 @@ local buttonTexts = {
 local buttonFuncs = {
 	newGame,
 	loadGame,
-	function()end,
+	settingsMenu,
 }
 local buttonStates = {
 	'game',

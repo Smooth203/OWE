@@ -7,18 +7,32 @@ newGame = function()
 	World:updateWorld()
 end
 
+settingsMenu = function()
+	gameState = 'settings'
+end
+
 require('conf')
 require 'saveload'
-require 'world'
-require 'entities'
-require 'ui'
+require 'world/world'
+require 'entities/entities'
+require 'UI/ui'
 require 'menu'
+require 'settingsMenu'
 gameState = 'menu'
 paused = 0
 
 profileDebug = false
 
 function love.load()
+
+	love.window.maximize()
+	local file = io.open('save/FS_settings.txt', 'r')
+	local setFS = file:read()
+	if setFS == 'true' then
+		love.window.setFullscreen(true)
+	elseif setFS == 'true2' then
+		love.window.setFullscreen(true, 'desktop')
+	end
 
 	if profileDebug then
 		love.profiler = require('profile') 
@@ -38,6 +52,7 @@ function love.load()
 
 	if gameState == 'menu' then
 		Menu:load()
+		settingsLoad()
 	end
 end
 
@@ -54,6 +69,8 @@ function love.draw()
 		-- love.graphics.setColor(1,1,1,1)
 		
 		Ui:draw()
+	elseif gameState == 'settings' then
+		settingsDraw()
 	else
 		Menu:draw()
 	end
@@ -102,6 +119,8 @@ function love.mousepressed(x,y,button)
 		if paused == 0 then
 			Entities:mousepressed(x,y,button)
 		end
+	elseif gameState == 'settings' then
+		settingsMousepressed(x,y,button)
 	else
 		Menu:mousepressed(x,y,button)
 	end

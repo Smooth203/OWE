@@ -5,7 +5,7 @@ local animalTypes = {
 	'deer',
 }
 
-local deer = require 'animal_deer'
+local deer = require 'entities/animals/deer'
 
 function newAnimal(name, id, x, y)
 	return animals[name](id, x, y)

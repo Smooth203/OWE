@@ -1,6 +1,6 @@
 structures = {}
 
-local tree = require 'tree'
+local tree = require 'entities/tree'
 
 function newStructure(id, name, x, y)
 	return structures[name](id, x, y)

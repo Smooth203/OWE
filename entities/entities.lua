@@ -1,7 +1,7 @@
-local player = require 'player'
-local Structures = require 'structures'
-local Animals = require 'animals'
-local Items = require 'items'
+local player = require 'entities/player'
+local Structures = require 'entities/structures'
+local Animals = require 'entities/animals'
+local Items = require 'entities/items'
 
 --entity types
 -- / done, x not done

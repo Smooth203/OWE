@@ -1,4 +1,3 @@
-local Noise = require 'noise'
 local scale = 10
 
 World = {
