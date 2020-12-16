@@ -17,11 +17,11 @@
 -- 	end,
 -- }
 
-animals['deer'] = function(id, x, y)
+animals['turkey'] = function(id, x, y)
 	animal = {}
 	animal.id = id
 	animal.Type = 'animal'
-	animal.name = 'deer'
+	animal.name = 'turkey'
 	animal.maxHealth = 100
 	animal.health = animal.maxHealth
 	animal.speed = 100
@@ -33,6 +33,11 @@ animals['deer'] = function(id, x, y)
 	animal.worldY = animal.y*World:get('tileSize')
 	animal.w = 32
 	animal.h = 32
+
+	animal.facing = 'up'
+	animal.state = 'walk'
+	animal.animState = 0
+	animal.animSpeed = 1
 
 	animal.targetX = animal.x
 	animal.targetY = animal.y

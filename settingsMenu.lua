@@ -34,12 +34,12 @@ local buttonFuncs = {
 		end
 		love.event.quit('restart')
 	end,
-	function() love.event.quit('restart') end,
+	function() end,
 }
 local buttonStates = {
-	'game',
-	'game',
 	'settings',
+	'settings',
+	'menu',
 }
 
 function settingsLoad()
