@@ -4,6 +4,7 @@ local animalCounts = {}
 local animalTypes = {
 	'turkey',
 }
+local dir = 1
 
 local turkey = require 'entities/animals/turkey'
 
@@ -17,18 +18,14 @@ end
 
 getAnimalUnsaveables = function(animal)
 
-	animal.canvas = love.graphics.newCanvas(animal.w, animal.h)
+	animal.canvas = love.graphics.newCanvas(128,128)
 	animal.spritesheet = love.graphics.newImage('assets/animals/' .. animal.name .. '.png')
 
 	function animal.draw(self)
-		love.graphics.rectangle('line', math.floor(World:get('x')+(animal.worldX)), math.floor(World:get('y')+(animal.worldY)), animal.w, animal.h)
-		love.graphics.draw(animal.canvas, math.floor(World:get('x')+(animal.worldX)), math.floor(World:get('y')+(animal.worldY)), 0, 1, 1, 0, 0)
+		love.graphics.draw(animal.canvas, math.floor(World:get('x')+(animal.worldX)), math.floor(World:get('y')+(animal.worldY)), 0, 1, 1, 64, 64)
 	end
 
 	function animal.update(self, dt)
-
-		animal.state = 'walk'
-		animal.animSpeed = 0.02
 
 		--anim
 		animal.char = newAnimalChar(animal.facing)
@@ -41,35 +38,42 @@ getAnimalUnsaveables = function(animal)
 
 		love.graphics.setCanvas()
 		if animal.state == 'idle' then
+			animal.animState = 0
 			animal.activeChar = animal.char[math.floor(animal.animState)]
-			animal.animState = animal.animState + 1 * animal.animSpeed
-		    if animal.animState > 3 then
-		    	animal.animState = 0
-		    end
 		elseif animal.state == 'walk' then
-			--anim
-		    animal.activeChar = animal.char[math.floor(animal.animState)]
-		    animal.animState = animal.animState + 1 * animal.animSpeed
-		    if animal.animState > 3 then
+		    if animal.animState > 4 then
 		    	animal.animState = 0
 		    end
+		    animal.activeChar = animal.char[math.floor(animal.animState)]
+		    animal.animState = math.abs(animal.animState + 1 * animal.animSpeed)
 		end
 
-		print(animal.animState)
 		-- moving
 		if animal.worldX > animal.targetX*World:get('tileSize') then
 			animal.worldX = animal.worldX - 1
+			animal.state = 'walk'
+			animal.facing = 'right'
 		elseif animal.worldX < animal.targetX*World:get('tileSize') then
 			animal.worldX = animal.worldX + 1
+			animal.state = 'walk'
+			animal.facing = 'left'
 		else
-			animal.speed = 1
+			animal.speed = animal.speedM
+			animal.state = 'idle'
+			animal.facing = 'downI'
 		end
 		if animal.worldY > animal.targetY*World:get('tileSize') then
 			animal.worldY = animal.worldY - 1
+			animal.state = 'walk'
+			animal.facing = 'up'
 		elseif animal.worldY < animal.targetY*World:get('tileSize') then
 			animal.worldY = animal.worldY + 1
+			animal.state = 'walk'
+			animal.facing = 'down'
 		else
-			animal.speed = 1
+			animal.speed = animal.speedM
+			animal.state = 'idle'
+			animal.facing = 'downI'
 		end
 
 		-- random grazing
@@ -89,7 +93,7 @@ getAnimalUnsaveables = function(animal)
 			math.randomseed(os.time())
 			animal.targetX = math.random(animal.x-50, animal.x+50)
 			animal.targetY = math.random(animal.y-50, animal.y+50)
-			animal.speedM = 2
+			animal.speed = 2.5
 		end
 	end
 end
@@ -134,16 +138,18 @@ function updateAnimals()
 		end
 
 		for i, animalType in ipairs(animalTypes) do
-			if animalCounts[animalType] < 99999 then
+			if animalCounts[animalType] < 25 then
 				math.randomseed(os.time())
 				local spawnX = love.math.random(0, World:get('w'))
 				math.randomseed(os.time()+1)
 				local spawnY = love.math.random(0, World:get('h'))
-				if World:getTile(spawnX, spawnY).texture ~= 4 and not col(math.floor(World:get('x')+(spawnX*World:get('tileSize'))), math.floor(World:get('y')+(spawnY*World:get('tileSize'))),World:get('w'),World:get('h'), 0,0,sw,sh) then
+				pcall(function()
+					if World:getTile(spawnX, spawnY).texture ~= 4 and not col(math.floor(World:get('x')+(spawnX*World:get('tileSize'))), math.floor(World:get('y')+(spawnY*World:get('tileSize'))),World:get('w'),World:get('h'), 0,0,sw,sh) then
 					
-					Entities:addEntity(newAnimal(animalType, love.timer.getTime(), spawnX, spawnY), Entities:getPlayerIndex()-1)
-					animalCounts[animalType] = animalCounts[animalType] + 1
-				end
+						Entities:addEntity(newAnimal(animalType, love.timer.getTime(), spawnX, spawnY), Entities:getPlayerIndex()-1)
+						animalCounts[animalType] = animalCounts[animalType] + 1
+					end
+				end)
 			end
 		end
 

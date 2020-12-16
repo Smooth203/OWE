@@ -24,7 +24,7 @@ animals['turkey'] = function(id, x, y)
 	animal.name = 'turkey'
 	animal.maxHealth = 100
 	animal.health = animal.maxHealth
-	animal.speed = 100
+	animal.speed = 1
 	animal.speedM = 1
 
 	animal.x = x -- tiles
@@ -37,7 +37,7 @@ animals['turkey'] = function(id, x, y)
 	animal.facing = 'up'
 	animal.state = 'walk'
 	animal.animState = 0
-	animal.animSpeed = 1
+	animal.animSpeed = 0.1
 
 	animal.targetX = animal.x
 	animal.targetY = animal.y
